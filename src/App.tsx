@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useLiveQuery } from 'dexie-react-hooks';
-import { db, getSetting, setSetting } from './db/db';
-import { clearDemo, seedDemo } from './db/seed';
+import { db } from './db/db';
+import { clearDemo } from './db/seed';
 import { href, useRoute } from './router';
 import { SettingsProvider, useSettings } from './settings';
 import { toast, useOnline, useToastHost } from './hooks';
@@ -17,7 +17,6 @@ import SettingsPage from './pages/Settings';
 import MorePage from './pages/More';
 
 const BACKUP_REMINDER_DAYS = 14;
-let seedStarted = false;
 
 function Nav({ section }: { section: string }) {
   const items = [
@@ -86,17 +85,6 @@ function Shell() {
   const toastMsg = useToastHost();
   const active = useLiveQuery(() => db.sessions.filter((s) => !!s.active).first(), []);
   const [p0, p1] = path;
-
-  useEffect(() => {
-    // First run: load demo data once so the dashboard has something to show.
-    if (seedStarted) return;
-    seedStarted = true;
-    (async () => {
-      if (await getSetting('seeded', false)) return;
-      await setSetting('seeded', true);
-      if ((await db.sessions.count()) === 0) await seedDemo();
-    })();
-  }, []);
 
   let page;
   switch (p0) {

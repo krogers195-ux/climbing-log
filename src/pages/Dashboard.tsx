@@ -14,6 +14,7 @@ import {
   ExerciseChart, GoesChart, Heatmap, ProgressChart, PyramidChart, RatingLine, StyleChart, WeeklyBars, useChartColors,
 } from '../components/Charts';
 import { href, useRoute } from '../router';
+import { seedDemo } from '../db/seed';
 
 type Range = '90d' | '6m' | '12m' | 'all' | 'custom';
 
@@ -118,7 +119,11 @@ export default function Dashboard() {
     return (
       <Empty title="Welcome to Sendlog">
         <p>Log your first session to see your level, pyramid and progress here.</p>
-        <a className="btn big" href={href('/log')}>Start a session</a>
+        <div className="row" style={{ justifyContent: 'center' }}>
+          <a className="btn big" href={href('/log')}>Start a session</a>
+          <button className="btn big secondary" onClick={() => seedDemo()}>Explore with demo data</button>
+        </div>
+        <p style={{ marginTop: 16, fontSize: '0.9rem' }}>Demo data can be cleared any time without touching your own logs.</p>
       </Empty>
     );
   }

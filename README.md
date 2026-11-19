@@ -122,7 +122,7 @@ Boulders: Font, V-scale. Routes: French, UK trad (adjectival + technical, e.g. `
 Photos are resized to ≤1600px and re-encoded as WebP (JPEG fallback) on import. Videos are stored as-is. You'll get a warning above 100 MB. Tap a thumbnail for the full-screen viewer (swipe or arrows to move between items).
 
 ### Demo data
-On first launch Sendlog loads a year of demo data (UK gym bouldering & lead, a Font trip, a Spanish sport trip and a Magic Wood trip, plus training) so you can explore. Tap **Clear demo data** in the banner or in Settings. It removes only demo records, never anything you logged. Outdoor climb grades in the demo are approximate.
+Sendlog starts empty. To explore first, tap **Explore with demo data** on the welcome screen (or *Settings → Demo data*). It loads a year of UK gym bouldering & lead, a Font trip, a Spanish sport trip and a Magic Wood trip, plus training. Tap **Clear demo data** in the banner or in Settings. It removes only demo records, never anything you logged. Outdoor climb grades in the demo are approximate.
 
 ---
 
